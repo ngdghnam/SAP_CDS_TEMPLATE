@@ -1,0 +1,5 @@
+ID;appraiserID;name;email;department;role;phone;isActive
+2001;APP001;John Smith;john.smith@company.com;Quality Assurance;Quality Manager;+1-555-1001;true
+2002;APP002;Maria Garcia;maria.garcia@company.com;Procurement;Senior Buyer;+1-555-1002;true
+2003;APP003;Thomas Mueller;thomas.mueller@company.com;Quality Assurance;QA Specialist;+49-555-1003;true
+2004;APP004;Sarah Johnson;sarah.johnson@company.com;Procurement;Procurement Officer;+1-555-1004;true

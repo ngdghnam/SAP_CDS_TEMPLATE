@@ -1,0 +1,5 @@
+code;name;descr
+Rating;Rating;Numeric rating scale
+YesNo;Yes/No;Boolean yes/no question
+Text;Text;Free text response
+MultipleChoice;Multiple Choice;Multiple choice selection

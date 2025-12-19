@@ -1,0 +1,5 @@
+ID;questionnaireID;name;description;version;category;isActive;isTemplate
+3001;Q001;Quality Management Assessment;Comprehensive quality management system evaluation;1.0;Quality;true;true
+3002;Q002;Financial Stability Check;Financial health and stability assessment;1.0;Financial;true;true
+3003;Q003;Compliance & Certifications;Regulatory compliance and certification verification;1.0;Compliance;true;true
+3004;Q004;Delivery Performance Review;On-time delivery and logistics performance;1.0;Logistics;true;true

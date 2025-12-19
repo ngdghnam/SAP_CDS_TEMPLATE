@@ -1,0 +1,8 @@
+code;name;descr
+Draft;Draft;Initial draft status
+In Progress;In Progress;Evaluation in progress
+Submitted;Submitted;Submitted for review
+Under Review;Under Review;Currently under review
+Approved;Approved;Evaluation approved
+Rejected;Rejected;Evaluation rejected
+Cancelled;Cancelled;Evaluation cancelled

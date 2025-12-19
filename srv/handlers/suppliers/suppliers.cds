@@ -1,0 +1,4 @@
+service Supplier @(path: '/supplier') {
+
+
+}

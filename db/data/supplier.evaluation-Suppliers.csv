@@ -1,0 +1,6 @@
+ID;supplierID;name;email;phone;address;city;country;postalCode;status;category;rating
+1001;SUP001;Acme Manufacturing;contact@acme-mfg.com;+1-555-0101;123 Industrial Ave;Chicago;USA;60601;Active;Raw Materials;4.50
+1002;SUP002;Global Components Ltd;info@globalcomp.com;+44-20-5555-0102;45 Tech Park;London;UK;SW1A 1AA;Active;Components;4.20
+1003;SUP003;Premium Services GmbH;service@premium.de;+49-30-5555-0103;Hauptstraße 100;Berlin;Germany;10115;Active;Services;4.80
+1004;SUP004;Quality Parts Inc;sales@qualityparts.com;+1-555-0104;789 Commerce Blvd;New York;USA;10001;Active;Components;3.90
+1005;SUP005;Tech Solutions AG;info@techsol.ch;+41-44-555-0105;Bahnhofstrasse 50;Zurich;Switzerland;8001;Active;Services;4.60
