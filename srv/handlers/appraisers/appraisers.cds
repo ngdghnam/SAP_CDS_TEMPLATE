@@ -1,3 +1,2 @@
-service Appraisers @(path: '/appraisers') {
-
-}
+@path: ('/api/cnma/appraisers')
+service Appraisers {}

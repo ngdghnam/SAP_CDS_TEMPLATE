@@ -5,6 +5,7 @@ using {
 } from '@sap/cds/common';
 
 using {sap.evaluations as evaluation} from './evaluations';
+using {sap.codelists as codelist} from './codelist';
 
 namespace sap.questionaires;
 
@@ -12,13 +13,13 @@ namespace sap.questionaires;
  * Questionnaire Templates
  */
 entity Questionnaires : cuid, managed {
-    questionnaireID : String(10)   @title: 'Questionnaire ID';
-    name            : String(255)  @title: 'Questionnaire Name'  @mandatory;
-    description     : String(1000) @title: 'Description';
-    version         : String(20)   @title: 'Version';
-    category        : String(100)  @title: 'Category'; // Quality, Compliance, Safety, Financial, etc.
-    isActive        : Boolean      @title: 'Active' default true;
-    isTemplate      : Boolean      @title: 'Is Template' default true;
+    questionnaireID : String(10)                                      @title: 'Questionnaire ID';
+    name            : String(255)                                     @title: 'Questionnaire Name'  @mandatory;
+    description     : String(1000)                                    @title: 'Description';
+    version         : String(20)                                      @title: 'Version';
+    category        : Association to codelist.QuestionnaireCategories @title: 'Category';
+    isActive        : Boolean                                         @title: 'Active' default true;
+    isTemplate      : Boolean                                         @title: 'Is Template' default true;
     // Associations
     sections        : Composition of many QuestionnaireSections
                           on sections.questionnaire = $self;
@@ -45,17 +46,17 @@ entity QuestionnaireSections : cuid {
  */
 entity Questions : cuid {
     section        : Association to QuestionnaireSections;
-    questionNumber : String(20)    @title: 'Question Number';
-    text           : String(1000)  @title: 'Question Text'  @mandatory;
-    questionType   : String(50)    @title: 'Question Type'; // Rating, YesNo, Text, MultipleChoice
-    isMandatory    : Boolean       @title: 'Mandatory' default false;
-    weight         : Decimal(5, 2) @title: 'Weight'; // Individual question weight
-    helpText       : String(500)   @title: 'Help Text';
+    questionNumber : String(20)                            @title: 'Question Number';
+    text           : String(1000)                          @title: 'Question Text'  @mandatory;
+    questionType   : Association to codelist.QuestionTypes @title: 'Question Type';
+    isMandatory    : Boolean                               @title: 'Mandatory' default false;
+    weight         : Decimal(5, 2)                         @title: 'Weight'; // Individual question weight
+    helpText       : String(500)                           @title: 'Help Text';
     // For rating type questions
-    minRating      : Integer       @title: 'Minimum Rating';
-    maxRating      : Integer       @title: 'Maximum Rating';
+    minRating      : Integer                               @title: 'Minimum Rating';
+    maxRating      : Integer                               @title: 'Maximum Rating';
     // For multiple choice
-    choices        : String(1000)  @title: 'Choices (JSON)'; // Store as JSON array
+    choices        : String(1000)                          @title: 'Choices (JSON)'; // Store as JSON array
     // Associations
     responses      : Association to many QuestionResponses
                          on responses.question = $self;

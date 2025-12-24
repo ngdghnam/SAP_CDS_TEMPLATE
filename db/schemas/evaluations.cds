@@ -6,6 +6,7 @@ using {
 using {sap.suppliers as supplier} from './suppliers';
 using {sap.questionaires as questionnaire} from './questionaires';
 using {sap.appraisers as appraiser} from './appraisers';
+using {sap.codelists as codelist} from './codelist';
 
 namespace sap.evaluations;
 
@@ -24,15 +25,15 @@ entity Evaluations : cuid, managed {
     dueDate           : Date                                        @title: 'Due Date';
     completedDate     : Date                                        @title: 'Completed Date';
     // Status
-    status            : String(20)                                  @title: 'Status' default 'Draft';
+    status            : Association to codelist.EvaluationStatuses  @title: 'Status';
     // Draft, In Progress, Submitted, Under Review, Approved, Rejected, Cancelled
     // Scoring
     totalScore        : Decimal(5, 2)                               @title: 'Total Score';
     maxScore          : Decimal(5, 2)                               @title: 'Maximum Score';
     percentage        : Decimal(5, 2)                               @title: 'Percentage';
-    grade             : String(10)                                  @title: 'Grade'; // A, B, C, D, F
+    grade             : Association to codelist.Grades              @title: 'Grade';
     // Communication
-    language          : String(10)                                  @title: 'Language' default 'EN'; // EN, DE, FR, etc.
+    language          : Association to codelist.Languages           @title: 'Language';
     communicationSent : Boolean                                     @title: 'Communication Sent' default false;
     supplierNotified  : Boolean                                     @title: 'Supplier Notified' default false;
     // Associations
@@ -50,9 +51,9 @@ entity Evaluations : cuid, managed {
  */
 entity EvaluationComments : cuid, managed {
     evaluation  : Association to Evaluations;
-    commentText : String(2000)  @title: 'Comment'  @mandatory;
-    commentType : String(50)    @title: 'Comment Type'; // General, Internal, Supplier
-    isInternal  : Boolean       @title: 'Internal Only' default false;
+    commentText : String(2000)                         @title: 'Comment'  @mandatory;
+    commentType : Association to codelist.CommentTypes @title: 'Comment Type';
+    isInternal  : Boolean                              @title: 'Internal Only' default false;
 }
 
 /**

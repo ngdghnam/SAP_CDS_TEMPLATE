@@ -1,4 +1,2 @@
-service Supplier @(path: '/supplier') {
-
-
-}
+@path: ('/api/cnma/suppliers')
+service Supplier {}
