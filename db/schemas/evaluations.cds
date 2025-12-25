@@ -14,7 +14,7 @@ namespace sap.evaluations;
  * Evaluation (Main evaluation record)
  */
 entity Evaluations : cuid, managed {
-    evaluationID      : String(20)                                  @title: 'Evaluation ID';
+    evaluationID      : String(20)                                      @title: 'Evaluation ID';
     title             : String(255)                                 @title: 'Evaluation Title'  @mandatory;
     description       : String(1000)                                @title: 'Description';
     supplier          : Association to supplier.Suppliers           @mandatory;
@@ -36,7 +36,7 @@ entity Evaluations : cuid, managed {
     language          : Association to codelist.Languages           @title: 'Language';
     communicationSent : Boolean                                     @title: 'Communication Sent' default false;
     supplierNotified  : Boolean                                     @title: 'Supplier Notified' default false;
-    // Associations
+    // Associations - Relations
     responses         : Composition of many questionnaire.QuestionResponses
                             on responses.evaluation = $self;
     comments          : Composition of many EvaluationComments
